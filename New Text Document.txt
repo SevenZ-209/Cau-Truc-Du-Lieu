@@ -1,0 +1,35 @@
+void deleteNode(Node *&root, int key) {
+	if (root = NULL)
+		return;
+	Node *cur = root;
+	Node *parent = NULL;
+	while (cur!= NULL && cur->data !=key)
+	{
+		parent = cur;
+		if (cur->data > key)
+			cur = cur->left;
+		else
+			cur = cur->right;
+	}
+	if (cur = NULL)
+		return;
+
+	//Node bac 0, bac 1
+	if (cur->left == NULL || cur->right == NULL)
+	{
+		Node *temp;
+		if (cur->left != NULL)
+			temp = cur->left;
+		else
+			temp = cur->right;
+		if (cur == root) {
+			root = temp;
+		}
+		else if (parent->data > key) {
+			parent->left = temp;
+		}
+		else
+			parent->right = temp;
+		delete cur;
+	}
+	//xoa bac 2
